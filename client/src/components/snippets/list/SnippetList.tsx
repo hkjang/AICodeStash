@@ -43,7 +43,7 @@ const SnippetList: React.FC<SnippetListProps> = ({
     return (
       <div className="text-center py-12">
         <p className="text-xl text-light-text-secondary dark:text-dark-text-secondary mb-4">
-          No snippets match your search criteria.
+          검색 기준과 일치하는 코드조각이 없습니다.
         </p>
       </div>
     );

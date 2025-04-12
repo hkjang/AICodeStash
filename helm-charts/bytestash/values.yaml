@@ -1,4 +1,4 @@
-### ByteStash Helm Chart for Kubernetes
+### AICodeStash Helm Chart for Kubernetes
 ### Maintainer: Tin Trung Ngo - trungtinth1011@gmail.com
 
 ## Strings for naming overrides
@@ -17,8 +17,8 @@ serviceAccount:
   # If not set and create is true, a name is generated using the fullname template
   name: ""
 
-### ByteStash configs
-### ref: https://github.com/jordan-dalby/ByteStash/wiki
+### AICodeStash configs
+### ref: https://github.com/jordan-dalby/AICodeStash/wiki
 ###
 replicaCount: 1
 
@@ -45,7 +45,7 @@ bytestash:
     jwtKey: ""
     expirityKey: ""
 
-### Ref: https://github.com/jordan-dalby/ByteStash/wiki/Single-Sign%E2%80%90on-Setup
+### Ref: https://github.com/jordan-dalby/AICodeStash/wiki/Single-Sign%E2%80%90on-Setup
 oidc:
   enabled: false
   name: "Single Sign-on"
@@ -133,7 +133,7 @@ containerSecurityContext:
   # runAsNonRoot: true
   # runAsUser: 1000
 
-## ByteStash service parameters
+## AICodeStash service parameters
 ##
 service:
   type: ClusterIP
@@ -143,7 +143,7 @@ service:
   loadBalancerIP: ""
   loadBalancerSourceRanges: []
 
-## ByteStash ingress parameters
+## AICodeStash ingress parameters
 ##
 ingress:
   enabled: false

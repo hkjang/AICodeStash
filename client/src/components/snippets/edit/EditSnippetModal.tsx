@@ -19,10 +19,10 @@ export interface EditSnippetModalProps {
   allCategories: string[];
 }
 
-const EditSnippetModal: React.FC<EditSnippetModalProps> = ({ 
-  isOpen, 
-  onClose, 
-  onSubmit, 
+const EditSnippetModal: React.FC<EditSnippetModalProps> = ({
+  isOpen,
+  onClose,
+  onSubmit,
   snippetToEdit,
   showLineNumbers,
   allCategories
@@ -111,9 +111,9 @@ const EditSnippetModal: React.FC<EditSnippetModalProps> = ({
 
   const moveFragment = (fromIndex: number, direction: 'up' | 'down') => {
     const toIndex = direction === 'up' ? fromIndex - 1 : fromIndex + 1;
-    
+
     if (toIndex < 0 || toIndex >= fragments.length) return;
-    
+
     setFragments(current => {
       const newFragments = [...current];
       const [movedFragment] = newFragments.splice(fromIndex, 1);
@@ -166,7 +166,7 @@ const EditSnippetModal: React.FC<EditSnippetModalProps> = ({
       expandable={true}
       title={
         <h2 className="text-xl font-bold text-light-text dark:text-dark-text">
-          {snippetToEdit ? 'Edit Snippet' : 'Add New Snippet'}
+          {snippetToEdit ? '코드조각 편집' : '새로운 코드조각 추가'}
         </h2>
       }
     >
@@ -220,7 +220,7 @@ const EditSnippetModal: React.FC<EditSnippetModalProps> = ({
             <div className="space-y-4 pr-2">
               {/* Title input */}
               <div>
-                <label htmlFor="title" className="block text-sm font-medium text-light-text dark:text-dark-text">Title</label>
+                <label htmlFor="title" className="block text-sm font-medium text-light-text dark:text-dark-text">제목</label>
                 <input
                   type="text"
                   id="title"
@@ -230,15 +230,15 @@ const EditSnippetModal: React.FC<EditSnippetModalProps> = ({
                     border border-light-border dark:border-dark-border
                     focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary focus:border-light-primary dark:focus:border-dark-primary"
                   required
-                  placeholder="Enter the title of the snippet (max 100 characters)"
+                  placeholder="코드조각의 제목을 입력하세요. (최대 100 characters)"
                   maxLength={100}
                 />
                 <p className="text-sm text-light-text-secondary dark:text-dark-text-secondary mt-1">{title.length}/100 characters</p>
               </div>
-              
+
               {/* Description input */}
               <div>
-                <label htmlFor="description" className="block text-sm font-medium text-light-text dark:text-dark-text">Description</label>
+                <label htmlFor="description" className="block text-sm font-medium text-light-text dark:text-dark-text">상세</label>
                 <textarea
                   id="description"
                   value={description}
@@ -250,11 +250,11 @@ const EditSnippetModal: React.FC<EditSnippetModalProps> = ({
                   placeholder="Write a short description of the snippet"
                 />
               </div>
-              
+
               {/* Categories section */}
               <div>
                 <label htmlFor="categories" className="block text-sm font-medium text-light-text dark:text-dark-text">
-                  Categories (max 20)
+                  카테고리 (최대 20개)
                 </label>
                 <CategorySuggestions
                   inputValue={categoryInput}
@@ -284,22 +284,22 @@ const EditSnippetModal: React.FC<EditSnippetModalProps> = ({
               {/* Public snippet section */}
               <div className="space-y-1">
                 <label className="flex items-center gap-2">
-                  <Switch 
+                  <Switch
                     id="isPublic"
                     checked={!!isPublic}
                     onChange={setIsPublic}
                   />
-                  <span className="text-sm font-medium text-light-text dark:text-dark-text">Make snippet public</span>
+                  <span className="text-sm font-medium text-light-text dark:text-dark-text">코드조각 퍼블릭으로 변경</span>
                 </label>
                 <p className="text-sm text-light-text-secondary dark:text-dark-text-secondary">
-                  Public snippets can be viewed by anyone without authentication
+                  퍼블릭 코드조각은 인증 없이 익명의 사용자에게 노출됩니다.
                 </p>
               </div>
 
               {/* Code Fragments section */}
               <div>
                 <label className="block text-sm font-medium text-light-text dark:text-dark-text mb-4">
-                  Code Fragments ({fragments.length})
+                  코드 구성요소 ({fragments.length})
                 </label>
 
                 <div className="space-y-4">
@@ -316,17 +316,17 @@ const EditSnippetModal: React.FC<EditSnippetModalProps> = ({
                       canMoveDown={index < fragments.length - 1}
                     />
                   ))}
-                  
+
                   {/* New Add Fragment button positioned below fragments */}
                   <button
                     type="button"
                     onClick={handleAddFragment}
-                    className="add-fragment-button w-full py-3 px-4 border-2 border-dashed border-light-border dark:border-dark-border rounded-lg 
+                    className="add-fragment-button w-full py-3 px-4 border-2 border-dashed border-light-border dark:border-dark-border rounded-lg
                              hover:border-light-primary dark:hover:border-dark-primary hover:bg-light-hover dark:hover:bg-dark-hover transition-all duration-200
                              flex items-center justify-center gap-2 text-light-text-secondary dark:text-dark-text-secondary hover:text-light-primary dark:hover:text-dark-primary group"
                   >
                     <Plus size={20} className="transition-transform group-hover:scale-110" />
-                    <span className="text-sm font-medium">Add New Fragment</span>
+                    <span className="text-sm font-medium">신규 코드 구성요소 추가</span>
                   </button>
                 </div>
               </div>
@@ -339,18 +339,18 @@ const EditSnippetModal: React.FC<EditSnippetModalProps> = ({
               <button
                 type="button"
                 onClick={onClose}
-                className="px-4 py-2 bg-light-surface dark:bg-dark-surface text-light-text dark:text-dark-text rounded-md 
+                className="px-4 py-2 bg-light-surface dark:bg-dark-surface text-light-text dark:text-dark-text rounded-md
                   hover:bg-light-hover dark:hover:bg-dark-hover text-sm border border-light-border dark:border-dark-border"
               >
-                Cancel
+                취소
               </button>
               <button
                 type="submit"
-                className="px-4 py-2 bg-light-primary dark:bg-dark-primary text-white rounded-md hover:opacity-90 text-sm 
+                className="px-4 py-2 bg-light-primary dark:bg-dark-primary text-white rounded-md hover:opacity-90 text-sm
                   disabled:opacity-50 disabled:cursor-not-allowed"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? 'Saving...' : (snippetToEdit ? 'Save Changes' : 'Add Snippet')}
+                {isSubmitting ? 'Saving...' : (snippetToEdit ? '변경내용 저장' : '코드조각 추가')}
               </button>
             </div>
           </div>

@@ -125,7 +125,7 @@ export const SnippetCard: React.FC<SnippetCardProps> = ({
             )}
             <div className="flex items-center gap-1 text-light-text-secondary dark:text-dark-text-secondary ml-auto">
               <Clock size={12} />
-              <span>{getRelativeUpdateTime(snippet.updated_at)} ago</span>
+              <span>{getRelativeUpdateTime(snippet.updated_at)} 이전</span>
             </div>
           </div>
         )}
@@ -238,10 +238,10 @@ export const SnippetCard: React.FC<SnippetCardProps> = ({
         isOpen={isDeleteModalOpen}
         onClose={handleDeleteModalClose}
         onConfirm={handleDeleteConfirm}
-        title="Confirm Deletion"
-        message={`Are you sure you want to delete "${snippet.title}"? This action cannot be undone.`}
-        confirmLabel="Delete"
-        cancelLabel="Cancel"
+        title="삭제 확인"
+        message={`"${snippet.title}" 정말 삭제하시겠습니까? 코드조각을 되돌릴 수 없습니다.`}
+        confirmLabel="삭제"
+        cancelLabel="취소"
         variant="danger"
       />
     </>

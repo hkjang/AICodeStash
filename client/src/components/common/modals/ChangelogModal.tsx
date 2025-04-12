@@ -50,7 +50,7 @@ const ChangelogModal: React.FC<ChangelogModalProps> = ({ isOpen, onClose }) => {
       setError(null);
       
       try {
-        const response = await fetch('https://api.github.com/repos/jordan-dalby/ByteStash/releases');
+        const response = await fetch('https://api.github.com/repos/jordan-dalby/AICodeStash/releases');
         if (!response.ok) {
           throw new Error('Failed to fetch releases');
         }

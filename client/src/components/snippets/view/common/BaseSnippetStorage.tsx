@@ -133,7 +133,7 @@ const BaseSnippetStorage: React.FC<BaseSnippetStorageProps> = ({
       <PageContainer>
         <div className="min-h-screen bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text flex flex-col items-center justify-center">
           <div className="relative">
-            <h1 className="text-4xl font-bold mb-4">ByteStash</h1>
+            <h1 className="text-4xl font-bold mb-4">AICodeStash</h1>
             <div className="flex items-center justify-center gap-3">
               <Loader2 className="w-5 h-5 text-light-text-secondary dark:text-dark-text-secondary animate-spin" />
               <span className="text-light-text-secondary dark:text-dark-text-secondary">Loading snippets...</span>

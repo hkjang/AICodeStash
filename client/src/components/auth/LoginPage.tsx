@@ -21,7 +21,7 @@ export const LoginPage: React.FC = () => {
     const params = new URLSearchParams(window.location.search);
     const error = params.get('error');
     const message = params.get('message');
-    
+
     if (error) {
       handleOIDCError(error, addToast, oidcConfig?.displayName, message || undefined);
     }
@@ -36,7 +36,7 @@ export const LoginPage: React.FC = () => {
         console.error('Failed to fetch OIDC config:', error);
       }
     };
-    
+
     fetchOIDCConfig();
   }, []);
 
@@ -73,10 +73,10 @@ export const LoginPage: React.FC = () => {
       <div className="max-w-md w-full space-y-8">
         <div>
           <h2 className="mt-6 text-center text-3xl font-bold text-light-text dark:text-dark-text">
-            ByteStash
+            AICodeStash
           </h2>
           <p className="mt-2 text-center text-sm text-light-text-secondary dark:text-dark-text-secondary">
-            Please sign in to continue
+            로그인하세요.
             {authConfig?.allowNewAccounts && showInternalRegistration ? (
               <>
                 , create an{' '}
@@ -86,10 +86,10 @@ export const LoginPage: React.FC = () => {
                 {' '}or{' '}
               </>
             ) : (
-              ' or '
+              ' 혹은 '
             )}
             <Link to={ROUTES.PUBLIC_SNIPPETS} className="text-light-primary dark:text-dark-primary hover:opacity-80">
-              browse public snippets
+              퍼블릭 코드조각으로 이동
             </Link>
           </p>
         </div>
@@ -98,7 +98,7 @@ export const LoginPage: React.FC = () => {
           <>
             <button
               onClick={handleOIDCLogin}
-              className="w-full flex items-center justify-center gap-2 px-4 py-2 
+              className="w-full flex items-center justify-center gap-2 px-4 py-2
                 bg-light-primary dark:bg-dark-primary text-white rounded-md hover:opacity-90 transition-colors"
             >
               Sign in with {oidcConfig.displayName}
@@ -125,11 +125,11 @@ export const LoginPage: React.FC = () => {
                 <input
                   type="text"
                   required
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border 
-                    border-light-border dark:border-dark-border placeholder-light-text-secondary dark:placeholder-dark-text-secondary 
-                    text-light-text dark:text-dark-text bg-light-surface dark:bg-dark-surface rounded-t-md 
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border
+                    border-light-border dark:border-dark-border placeholder-light-text-secondary dark:placeholder-dark-text-secondary
+                    text-light-text dark:text-dark-text bg-light-surface dark:bg-dark-surface rounded-t-md
                     focus:outline-none focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary focus:border-light-primary dark:focus:border-dark-primary focus:z-10 sm:text-sm"
-                  placeholder="Username"
+                  placeholder="사용자 아이디"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   disabled={isLoading}
@@ -139,11 +139,11 @@ export const LoginPage: React.FC = () => {
                 <input
                   type="password"
                   required
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border 
-                    border-light-border dark:border-dark-border placeholder-light-text-secondary dark:placeholder-dark-text-secondary 
-                    text-light-text dark:text-dark-text bg-light-surface dark:bg-dark-surface rounded-b-md 
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border
+                    border-light-border dark:border-dark-border placeholder-light-text-secondary dark:placeholder-dark-text-secondary
+                    text-light-text dark:text-dark-text bg-light-surface dark:bg-dark-surface rounded-b-md
                     focus:outline-none focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary focus:border-light-primary dark:focus:border-dark-primary focus:z-10 sm:text-sm"
-                  placeholder="Password"
+                  placeholder="비밀번호"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   disabled={isLoading}
@@ -154,9 +154,9 @@ export const LoginPage: React.FC = () => {
             <div>
               <button
                 type="submit"
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent 
+                className="group relative w-full flex justify-center py-2 px-4 border border-transparent
                   text-sm font-medium rounded-md text-white bg-light-primary dark:bg-dark-primary hover:opacity-90
-                  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-primary dark:focus:ring-dark-primary 
+                  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-primary dark:focus:ring-dark-primary
                   disabled:opacity-50 disabled:cursor-not-allowed"
                 disabled={isLoading}
               >
@@ -166,10 +166,10 @@ export const LoginPage: React.FC = () => {
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
-                    Signing in...
+                    로그인 중...
                   </span>
                 ) : (
-                  'Sign in'
+                  '로그인'
                 )}
               </button>
             </div>

@@ -225,7 +225,7 @@ export const RegisterPage: React.FC = () => {
                     Creating Account...
                   </span>
                 ) : (
-                  'Create Account'
+                  '계정 생성'
                 )}
               </button>
             </div>

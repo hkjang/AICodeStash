@@ -13,7 +13,7 @@ const OIDC_ERROR_CONFIGS: Record<string, OIDCErrorConfig> = {
     duration: 8000
   },
   registration_disabled: {
-    message: "New account registration is currently disabled on this ByteStash instance. Please contact your administrator.",
+    message: "New account registration is currently disabled on this AICodeStash instance. Please contact your administrator.",
     type: 'error',
     duration: null
   },

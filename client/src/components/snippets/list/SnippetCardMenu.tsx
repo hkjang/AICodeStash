@@ -70,7 +70,7 @@ const SnippetCardMenu: React.FC<SnippetCardMenuProps> = ({
         variant="custom"
         size="sm"
         className="bg-light-hover dark:bg-dark-hover hover:bg-light-hover-more dark:hover:bg-dark-hover-more"
-        label="Edit snippet"
+        label="코드조각 수정"
       />
       <IconButton
         icon={<Trash2 size={16} className="hover:text-red-500" />}
@@ -81,7 +81,7 @@ const SnippetCardMenu: React.FC<SnippetCardMenuProps> = ({
         variant="custom"
         size="sm"
         className="bg-light-hover dark:bg-dark-hover hover:bg-light-hover-more dark:hover:bg-dark-hover-more"
-        label="Delete snippet"
+        label="코드조각 삭제"
       />
 
       <div className="relative">
@@ -95,7 +95,7 @@ const SnippetCardMenu: React.FC<SnippetCardMenuProps> = ({
           variant="custom"
           size="sm"
           className="bg-light-hover dark:bg-dark-hover hover:bg-light-hover-more dark:hover:bg-dark-hover-more"
-          label="More options"
+          label="옵션 더보기"
         />
         
         {isDropdownOpen && (
@@ -114,7 +114,7 @@ const SnippetCardMenu: React.FC<SnippetCardMenuProps> = ({
               className="w-full px-4 py-2 text-sm text-light-text dark:text-dark-text hover:bg-light-hover dark:hover:bg-dark-hover flex items-center gap-2"
             >
               <ExternalLink size={16} />
-              Open in new tab
+              신규 탭 오픈
             </button>
             <button
               onClick={(e) => {
@@ -125,7 +125,7 @@ const SnippetCardMenu: React.FC<SnippetCardMenuProps> = ({
               className="w-full px-4 py-2 text-sm text-light-text dark:text-dark-text hover:bg-light-hover dark:hover:bg-dark-hover flex items-center gap-2"
             >
               <Share size={16} />
-              Share snippet
+              코드조각 공유
             </button>
             <button
               onClick={(e) => {
@@ -136,7 +136,7 @@ const SnippetCardMenu: React.FC<SnippetCardMenuProps> = ({
               className="w-full px-4 py-2 text-sm text-light-text dark:text-dark-text hover:bg-light-hover dark:hover:bg-dark-hover flex items-center gap-2"
             >
               <Copy size={16} />
-              Duplicate snippet
+              코드조각 복제
             </button>
           </div>
         )}

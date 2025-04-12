@@ -31,7 +31,7 @@ const ViewSwitch: React.FC<ViewSwitchProps> = ({ checked, onChange }) => {
             `} 
             size={14} 
           />
-          <span className="text-xs font-medium">Private</span>
+          <span className="text-xs font-medium">프라이빗</span>
         </button>
         <button
           type="button"
@@ -51,7 +51,7 @@ const ViewSwitch: React.FC<ViewSwitchProps> = ({ checked, onChange }) => {
             `} 
             size={14} 
           />
-          <span className="text-xs font-medium">Public</span>
+          <span className="text-xs font-medium">퍼블릭</span>
         </button>
       </div>
     </div>

@@ -7,10 +7,10 @@ import { Snippet } from '../../types/snippets';
 import { Switch } from '../common/switch/Switch';
 import { getAssetPath } from '../../utils/paths';
 
-const GITHUB_URL = "https://github.com/jordan-dalby/ByteStash";
-const DOCKER_URL = "https://github.com/jordan-dalby/ByteStash/pkgs/container/bytestash";
+const GITHUB_URL = "https://github.com/jordan-dalby/AICodeStash";
+const DOCKER_URL = "https://github.com/jordan-dalby/AICodeStash/pkgs/container/bytestash";
 const REDDIT_URL = "https://www.reddit.com/r/selfhosted/comments/1gb1ail/selfhosted_code_snippet_manager/";
-const WIKI_URL = "https://github.com/jordan-dalby/ByteStash/wiki";
+const WIKI_URL = "https://github.com/jordan-dalby/AICodeStash/wiki";
 
 interface ImportProgress {
   total: number;
@@ -46,10 +46,10 @@ export interface SettingsModalProps {
   isPublicView: boolean;
 }
 
-const SettingsModal: React.FC<SettingsModalProps> = ({ 
-  isOpen, 
-  onClose, 
-  settings, 
+const SettingsModal: React.FC<SettingsModalProps> = ({
+  isOpen,
+  onClose,
+  settings,
   onSettingsChange,
   snippets,
   addSnippet,
@@ -96,8 +96,8 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
     if (!data || typeof data !== 'object') return false;
     if (typeof data.version !== 'string') return false;
     if (!Array.isArray(data.snippets)) return false;
-    
-    return data.snippets.every((snippet: Snippet) => 
+
+    return data.snippets.every((snippet: Snippet) =>
       typeof snippet === 'object' &&
       typeof snippet.title === 'string' &&
       Array.isArray(snippet.fragments) &&
@@ -140,7 +140,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
           });
           console.error(`Failed to import snippet "${snippet.title}":`, error);
         }
-        
+
         progress.current += 1;
         setImportProgress({ ...progress });
       }
@@ -229,7 +229,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
     >
       <div className="pb-4">
         <div className="space-y-4">
-          <SettingsGroup title="Theme Settings">
+          <SettingsGroup title="설정">
             <div className="flex gap-2 justify-start">
               <button
                 onClick={() => setThemePreference('light')}
@@ -240,7 +240,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
                   }`}
               >
                 <Sun size={16} />
-                Light
+                라이트 모드
               </button>
               <button
                 onClick={() => setThemePreference('dark')}
@@ -251,7 +251,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
                   }`}
               >
                 <Moon size={16} />
-                Dark
+                다크 모드
               </button>
               <button
                 onClick={() => setThemePreference('system')}
@@ -262,16 +262,16 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
                   }`}
               >
                 <Monitor size={16} />
-                System
+                시스템 모드
               </button>
             </div>
           </SettingsGroup>
 
-          <SettingsGroup title="View Settings">
-            <SettingRow 
-              label="Compact View" 
+          <SettingsGroup title="보기 설정">
+            <SettingRow
+              label="간단 뷰"
               htmlFor="compactView"
-              description="Display snippets in a more condensed format"
+              description="간결한 코드 스니펫 표시"
             >
               <Switch
                 id="compactView"
@@ -279,12 +279,12 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
                 onChange={setCompactView}
               />
             </SettingRow>
-            
+
             <div className="space-y-3">
-              <SettingRow 
-                label="Show Code Preview" 
+              <SettingRow
+                label="코드 프리뷰 보기"
                 htmlFor="showCodePreview"
-                description="Display a preview of the code in the snippet list"
+                description="코드조각 목록에 코드 미리보기 표시"
               >
                 <Switch
                   id="showCodePreview"
@@ -292,13 +292,13 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
                   onChange={setShowCodePreview}
                 />
               </SettingRow>
-              
+
               {showCodePreview && (
-                <SettingRow 
-                  label="Number of Preview Lines" 
-                  htmlFor="previewLines" 
+                <SettingRow
+                  label="미리보기 라인 수"
+                  htmlFor="previewLines"
                   indent
-                  description="Maximum number of lines to show in preview (1-20)"
+                  description="미리보기에 표시할 최대 라인 수 (1-20)"
                 >
                   <input
                     type="number"
@@ -313,10 +313,10 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
               )}
             </div>
 
-            <SettingRow 
-              label="Show Line Numbers" 
+            <SettingRow
+              label="라인 번호 표시"
               htmlFor="showLineNumbers"
-              description="Display line numbers in code blocks"
+              description="코드 블록에 라인 번호 표시"
             >
               <Switch
                 id="showLineNumbers"
@@ -326,11 +326,11 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
             </SettingRow>
           </SettingsGroup>
 
-          <SettingsGroup title="Category Settings">
-            <SettingRow 
-              label="Show Categories" 
+          <SettingsGroup title="카테고리 설정">
+            <SettingRow
+              label="카테고리 보기"
               htmlFor="showCategories"
-              description="Display category labels for snippets"
+              description="코드조각에 대한 카테고리 레이블 표시"
             >
               <Switch
                 id="showCategories"
@@ -338,13 +338,13 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
                 onChange={setShowCategories}
               />
             </SettingRow>
-            
+
             {showCategories && (
-              <SettingRow 
-                label="Expand Categories" 
-                htmlFor="expandCategories" 
+              <SettingRow
+                label="카테고리 확장"
+                htmlFor="expandCategories"
                 indent
-                description="Automatically expand category groups"
+                description="카테고리 그룹을 자동으로 확장합니다"
               >
                 <Switch
                   id="expandCategories"
@@ -355,11 +355,11 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
             )}
           </SettingsGroup>
 
-          <SettingsGroup title="Search Settings">
-            <SettingRow 
-              label="Include Code in Search" 
+          <SettingsGroup title="검색 설정">
+            <SettingRow
+              label="검색에 코드 포함"
               htmlFor="includeCodeInSearch"
-              description="Search within code content, not just titles"
+              description="제목뿐만 아니라 코드 내용 내에서도 검색"
             >
               <Switch
                 id="includeCodeInSearch"
@@ -370,7 +370,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
           </SettingsGroup>
 
           {!isPublicView && (
-            <SettingsGroup title="Data Management">
+            <SettingsGroup title="데이터 관리">
               <div className="flex gap-2">
                 <button
                   onClick={handleExport}
@@ -403,7 +403,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
                     <span>Importing snippets...</span>
                     <span>{importProgress.current} / {importProgress.total}</span>
                   </div>
-                  
+
                   <div className="w-full h-2 bg-light-surface dark:bg-dark-surface rounded-full overflow-hidden">
                     <div
                       className="h-full bg-light-primary dark:bg-dark-primary transition-all duration-200"
@@ -435,49 +435,49 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
 
           <div className="border-t border-light-border dark:border-dark-border pt-4 mt-4">
             <div className="flex gap-4 justify-center">
-              <button
-                onClick={() => setShowChangelog(true)}
-                className="opacity-60 hover:opacity-100 transition-opacity"
-                title="Changelog"
-              >
-                <Clock className="w-6 h-6 text-light-text dark:text-dark-text" />
-              </button>
-              <a 
-                href={GITHUB_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="opacity-60 hover:opacity-100 transition-opacity"
-                title="GitHub Repository"
-              >
-                <img src={getAssetPath('/github-mark-white.svg')} alt="GitHub" className="w-6 h-6 dark:brightness-100 brightness-0" />
-              </a>
-              <a 
-                href={DOCKER_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="opacity-60 hover:opacity-100 transition-opacity"
-                title="GitHub Packages"
-              >
-                <img src={getAssetPath('/docker-mark-white.svg')} alt="Docker" className="w-6 h-6 dark:brightness-100 brightness-0" />
-              </a>
-              <a 
-                href={REDDIT_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="opacity-60 hover:opacity-100 transition-opacity"
-                title="Reddit Post"
-              >
-                <img src={getAssetPath('/reddit-mark-white.svg')} alt="Reddit" className="w-6 h-6 dark:brightness-100 brightness-0" />
-              </a>
-              <a 
-                href={WIKI_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="opacity-60 hover:opacity-100 transition-opacity"
-                title="Documentation"
-              >
-                <BookOpen className="w-6 h-6 text-light-text dark:text-dark-text" />
-              </a>
+              {/*<button*/}
+              {/*  onClick={() => setShowChangelog(true)}*/}
+              {/*  className="opacity-60 hover:opacity-100 transition-opacity"*/}
+              {/*  title="Changelog"*/}
+              {/*>*/}
+              {/*  <Clock className="w-6 h-6 text-light-text dark:text-dark-text" />*/}
+              {/*</button>*/}
+              {/*<a*/}
+              {/*  href={GITHUB_URL}*/}
+              {/*  target="_blank"*/}
+              {/*  rel="noopener noreferrer"*/}
+              {/*  className="opacity-60 hover:opacity-100 transition-opacity"*/}
+              {/*  title="GitHub Repository"*/}
+              {/*>*/}
+              {/*  <img src={getAssetPath('/github-mark-white.svg')} alt="GitHub" className="w-6 h-6 dark:brightness-100 brightness-0" />*/}
+              {/*</a>*/}
+              {/*<a*/}
+              {/*  href={DOCKER_URL}*/}
+              {/*  target="_blank"*/}
+              {/*  rel="noopener noreferrer"*/}
+              {/*  className="opacity-60 hover:opacity-100 transition-opacity"*/}
+              {/*  title="GitHub Packages"*/}
+              {/*>*/}
+              {/*  <img src={getAssetPath('/docker-mark-white.svg')} alt="Docker" className="w-6 h-6 dark:brightness-100 brightness-0" />*/}
+              {/*</a>*/}
+              {/*<a*/}
+              {/*  href={REDDIT_URL}*/}
+              {/*  target="_blank"*/}
+              {/*  rel="noopener noreferrer"*/}
+              {/*  className="opacity-60 hover:opacity-100 transition-opacity"*/}
+              {/*  title="Reddit Post"*/}
+              {/*>*/}
+              {/*  <img src={getAssetPath('/reddit-mark-white.svg')} alt="Reddit" className="w-6 h-6 dark:brightness-100 brightness-0" />*/}
+              {/*</a>*/}
+              {/*<a*/}
+              {/*  href={WIKI_URL}*/}
+              {/*  target="_blank"*/}
+              {/*  rel="noopener noreferrer"*/}
+              {/*  className="opacity-60 hover:opacity-100 transition-opacity"*/}
+              {/*  title="Documentation"*/}
+              {/*>*/}
+              {/*  <BookOpen className="w-6 h-6 text-light-text dark:text-dark-text" />*/}
+              {/*</a>*/}
             </div>
           </div>
         </div>
@@ -487,13 +487,13 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
             onClick={onClose}
             className="mr-2 px-4 py-2 bg-light-surface dark:bg-dark-surface text-light-text dark:text-dark-text rounded-md hover:bg-light-hover dark:hover:bg-dark-hover text-sm"
           >
-            Cancel
+            취소
           </button>
           <button
             onClick={handleSave}
             className="px-4 py-2 bg-light-primary dark:bg-dark-primary text-white rounded-md hover:opacity-90 text-sm"
           >
-            Save
+            저장
           </button>
         </div>
       </div>

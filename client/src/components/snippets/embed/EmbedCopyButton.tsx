@@ -77,7 +77,7 @@ const EmbedCopyButton: React.FC<EmbedCopyButtonProps> = ({ text, theme }) => {
     <button
       onClick={handleCopy}
       className={`absolute top-2 right-2 p-1 rounded-md transition-colors ${getBackgroundColor()} ${getTextColor()}`}
-      title="Copy to clipboard"
+      title="클립보드 복사"
     >
       {isCopied ? (
         <Check size={16} className={getIconColor()} />

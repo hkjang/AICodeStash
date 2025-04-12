@@ -18,7 +18,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   onCategorySelect,
   existingCategories,
   selectedCategories,
-  placeholder = "Search snippets... (Type # to see all available categories)"
+  placeholder = "코드조각 검색... (타입 # 모든 카테고리 보기)"
 }) => {
   const [inputValue, setInputValue] = useState(value);
   const lastValueRef = useRef(value);

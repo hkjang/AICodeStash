@@ -6,10 +6,10 @@ import { IconButton } from '../common/buttons/IconButton';
 export type SortOrder = 'newest' | 'oldest' | 'alpha-asc' | 'alpha-desc';
 
 const sortOptions: { value: SortOrder; label: string }[] = [
-  { value: 'newest', label: 'Newest First' },
-  { value: 'oldest', label: 'Oldest First' },
-  { value: 'alpha-asc', label: 'Alphabetically A-Z' },
-  { value: 'alpha-desc', label: 'Alphabetically Z-A' },
+  { value: 'newest', label: '신규 순' },
+  { value: 'oldest', label: '오래된 순' },
+  { value: 'alpha-asc', label: '알파벳순 A-Z' },
+  { value: 'alpha-desc', label: '알파벳순 Z-A' },
 ];
 
 export interface SearchAndFilterProps {
@@ -30,12 +30,12 @@ export interface SearchAndFilterProps {
   hideNewSnippet?: boolean;
 }
 
-export const SearchAndFilter: React.FC<SearchAndFilterProps> = ({ 
-  searchTerm, 
-  setSearchTerm, 
-  selectedLanguage, 
-  setSelectedLanguage, 
-  languages, 
+export const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
+  searchTerm,
+  setSearchTerm,
+  selectedLanguage,
+  setSelectedLanguage,
+  languages,
   sortOrder,
   setSortOrder,
   viewMode,
@@ -56,21 +56,21 @@ export const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
         existingCategories={allCategories}
         selectedCategories={selectedCategories}
       />
-      
+
       <div className="relative">
         <select
           className="appearance-none bg-light-surface dark:bg-dark-surface text-light-text dark:text-dark-text rounded-lg py-2 px-4 pr-10 focus:outline-none focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary"
           value={selectedLanguage}
           onChange={(e) => setSelectedLanguage(e.target.value)}
         >
-          <option value="">All Languages</option>
+          <option value="">모든 언어</option>
           {languages.map(lang => (
             <option key={lang} value={lang}>{lang}</option>
           ))}
         </select>
-        <ChevronDown 
-          className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-light-text-secondary dark:text-dark-text-secondary" 
-          size={20} 
+        <ChevronDown
+          className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-light-text-secondary dark:text-dark-text-secondary"
+          size={20}
         />
       </div>
 
@@ -86,9 +86,9 @@ export const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
             </option>
           ))}
         </select>
-        <ChevronDown 
-          className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-light-text-secondary dark:text-dark-text-secondary" 
-          size={20} 
+        <ChevronDown
+          className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-light-text-secondary dark:text-dark-text-secondary"
+          size={20}
         />
       </div>
 
@@ -98,26 +98,26 @@ export const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
           onClick={() => setViewMode('grid')}
           variant={viewMode === 'grid' ? 'primary' : 'secondary'}
           className="h-10 px-4"
-          label="Grid view"
+          label="그리드 보기"
         />
         <IconButton
           icon={<List size={20} />}
           onClick={() => setViewMode('list')}
           variant={viewMode === 'list' ? 'primary' : 'secondary'}
           className="h-10 px-4"
-          label="List view"
+          label="리스트 보기"
         />
         <IconButton
           icon={<Settings size={20} />}
           onClick={openSettingsModal}
           variant="secondary"
           className="h-10 px-4"
-          label="Open settings"
+          label="설정 열기"
         />
         {!hideNewSnippet && (
           <IconButton
             icon={<Plus size={20} />}
-            label="New Snippet"
+            label="코드조각생성"
             onClick={openNewSnippetModal}
             variant="action"
             className="h-10 pl-2 pr-4"

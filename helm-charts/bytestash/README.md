@@ -1,8 +1,8 @@
-# ByteStash Helm Chart for Kubernetes
+# AICodeStash Helm Chart for Kubernetes
 
 ## Before you begin
 
-This [Helm](https://github.com/kubernetes/helm) chart supports installation of [ByteStash](https://github.com/jordan-dalby/ByteStash) - A code snippet storage solution written in React & node.js
+This [Helm](https://github.com/kubernetes/helm) chart supports installation of [AICodeStash](https://github.com/jordan-dalby/AICodeStash) - A code snippet storage solution written in React & node.js
 
 The prerequisites for this Helm chart is a working **Kubernetes Cluster** and **Helm** installed.
 
@@ -14,13 +14,13 @@ To install Helm, see [Helm Installation guide](https://helm.sh/docs/intro/instal
 
 ## Installation and Configuration
 
-To add the ByteStash helm repository, run command:
+To add the AICodeStash helm repository, run command:
 
 ```bash
-helm repo add bytestash https://jordan-dalby.github.io/ByteStash/
+helm repo add bytestash https://jordan-dalby.github.io/AICodeStash/
 ```
 
-To install the ByteStash helm chart with a release name `my-release` in `ns` namespace, run command:
+To install the AICodeStash helm chart with a release name `my-release` in `ns` namespace, run command:
 
 ```bash
 helm install -n ns --create-namespace my-release bytestash/bytestash

@@ -43,7 +43,7 @@ export const UserDropdown: React.FC = () => {
                 dark:hover:bg-dark-hover flex items-center gap-2"
             >
               <Key size={16} />
-              <span>API Keys</span>
+              <span>API 키</span>
             </button>
             <button
               onClick={() => {
@@ -54,7 +54,7 @@ export const UserDropdown: React.FC = () => {
                 dark:hover:bg-dark-hover flex items-center gap-2"
             >
               <LogOut size={16} />
-              <span>Sign out</span>
+              <span>로그아웃</span>
             </button>
           </div>
         )}

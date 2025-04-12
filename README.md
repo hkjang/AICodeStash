@@ -1,14 +1,14 @@
-# ByteStash
+# AICodeStash
 <p align="center">
-  <img src="https://raw.githubusercontent.com/jordan-dalby/ByteStash/refs/heads/main/client/public/logo192.png" />
+  <img src="https://raw.githubusercontent.com/jordan-dalby/AICodeStash/refs/heads/main/client/public/logo192.png" />
 </p>
 
-ByteStash is a self-hosted web application designed to store, organise, and manage your code snippets efficiently. With support for creating, editing, and filtering snippets, ByteStash helps you keep track of your code in one secure place.
+AICodeStash is a self-hosted web application designed to store, organise, and manage your code snippets efficiently. With support for creating, editing, and filtering snippets, AICodeStash helps you keep track of your code in one secure place.
 
-![ByteStash App](https://raw.githubusercontent.com/jordan-dalby/ByteStash/refs/heads/main/media/app-image.png)
+![AICodeStash App](https://raw.githubusercontent.com/jordan-dalby/AICodeStash/refs/heads/main/media/app-image.png)
 
 ## Demo
-Check out the [ByteStash demo](https://bytestash-demo.pikapod.net/) powered by PikaPods!  
+Check out the [AICodeStash demo](https://bytestash-demo.pikapod.net/) powered by PikaPods!  
 Username: demo  
 Password: demodemo
 
@@ -19,13 +19,13 @@ Password: demodemo
 
 ## Howto
 ### Unraid
-ByteStash is now on the Unraid App Store! Install it from [there](https://unraid.net/community/apps).
+AICodeStash is now on the Unraid App Store! Install it from [there](https://unraid.net/community/apps).
 
 ### PikaPods
 Also available on [PikaPods](https://www.pikapods.com/) for [1-click install](https://www.pikapods.com/pods?run=bytestash) from $1/month.
 
 ### Docker
-ByteStash can also be hosted manually via the docker-compose file:
+AICodeStash can also be hosted manually via the docker-compose file:
 ```yaml
 services:
   bytestash:
@@ -36,7 +36,7 @@ services:
     ports:
       - "5000:5000"
     environment:
-      # See https://github.com/jordan-dalby/ByteStash/wiki/FAQ#environment-variables
+      # See https://github.com/jordan-dalby/AICodeStash/wiki/FAQ#environment-variables
       BASE_PATH: ""
       JWT_SECRET: your-secret
       TOKEN_EXPIRY: 24h
@@ -45,7 +45,7 @@ services:
       DISABLE_ACCOUNTS: "false"
       DISABLE_INTERNAL_ACCOUNTS: "false"
 
-      # See https://github.com/jordan-dalby/ByteStash/wiki/Single-Sign%E2%80%90on-Setup for more info
+      # See https://github.com/jordan-dalby/AICodeStash/wiki/Single-Sign%E2%80%90on-Setup for more info
       OIDC_ENABLED: "false"
       OIDC_DISPLAY_NAME: ""
       OIDC_ISSUER_URL: ""

@@ -36,6 +36,41 @@ const EditSnippetModal: React.FC<EditSnippetModalProps> = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isPublic, setIsPublic] = useState(snippetToEdit?.is_public || false);
 
+  const generateCodeFromOllama = async () => {
+    if (!title || !description) return;
+
+    try {
+      const response = await fetch('http://localhost:11434/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          model: 'gemma3',
+          messages: [
+            {role: 'system', content: '사용자의 요구에 맞는 코드 스니펫을 작성하세요.'},
+            {role: 'user', content: `제목: ${title}\n설명: ${description}`}
+          ],
+          stream: false
+        }),
+      });
+
+      const data = await response.json();
+      const code = data?.choices?.[0]?.message?.content || '';
+      // CodeFragment 객체로 변환하여 업데이트
+      const updatedFragment: CodeFragment = {
+        file_name: 'generated_code',  // 코드의 파일 이름을 지정
+        code: code,                   // 생성된 코드
+        language: '',       // 코드 언어를 설정 (예: 'javascript')
+        position: 0                   // 코드 위치 (프래그먼트의 순서)
+      };
+
+      handleUpdateFragment(0, updatedFragment); // 업데이트된 CodeFragment를 넘김
+    }catch (error) {
+      console.error('코드 생성 실패:', error);
+    }
+  };
+
   const resetForm = () => {
     setTitle('');
     setDescription('');
@@ -336,6 +371,13 @@ const EditSnippetModal: React.FC<EditSnippetModalProps> = ({
           {/* Footer */}
           <div className="modal-footer -bottom-5 inset-x-0 mt-4 z-10">
             <div className="flex justify-end gap-2 py-4">
+              <button
+                  type="button"
+                  onClick={generateCodeFromOllama}
+                  className="px-4 py-2 bg-light-surface dark:bg-dark-surface text-light-text dark:text-dark-text rounded-md
+                  hover:bg-light-hover dark:hover:bg-dark-hover text-sm border border-light-border dark:border-dark-border">
+                AI 코드 생성
+              </button>
               <button
                 type="button"
                 onClick={onClose}
